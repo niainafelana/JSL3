@@ -1,0 +1,89 @@
+body{
+    margin: 0%;
+    padding: 0%;
+
+}
+/******bouton****/
+#caisse{
+    background-color: rgb(117, 218, 171);
+    font-family: Segoe UI;
+    padding-right: 1.6cm;
+    margin-bottom: 0.5cm;
+    font-weight: bolder;
+}
+#virement{
+    background-color: rgb(117, 218, 171);
+    font-family: Segoe UI;
+    padding-right: 1.1cm;
+    margin-bottom: 0.5cm;
+    font-weight: bolder;
+}
+#transfert{
+    background-color: rgb(117, 218, 171);
+    font-family: Segoe UI;
+    font-size: medium;
+    padding-right: 1cm;
+    font-weight: bolder;
+}
+#ok{
+    padding-top: 6cm;
+    padding-left: 9cm;
+   
+}
+/*sary et titre*/
+#titre{
+    float: right;
+    margin-top: -9cm;
+    margin-right: 2cm;
+}
+#photo{
+    width: 14cm;
+    height: 14cm;
+    position: static;
+}
+h4{
+    font-weight: bolder;
+    font-size: 0.7Cm;
+    color: rgb(19, 104, 54);
+    margin-left: 2cm;
+}
+/****PAIMENT ESPECE****/
+h5{
+    text-align: center;
+    color: aliceblue;
+    font-weight: bold;
+    font-size: 0.6cm;
+    font-family: Cooper;
+}
+#titree{
+    background-color:  rgb(19, 104, 54);
+}
+#hommee{
+   color: aliceblue;
+   font-size: 1cm;
+}
+#close{
+    color: aliceblue;
+    font-size: 1cm;
+}
+#ajout{
+    background-color:rgb(19, 104, 54) ;
+    color: aliceblue;
+    font-family: Cooper;
+    font-weight: bolder;
+}
+/*****paiement virement*****/
+#bcm{
+    border-color:rgb(19, 104, 54);
+}
+h3{
+ text-align: left;
+ color: rgb(19, 104, 54) ;
+ font-weight: bold;
+ font-family: Cooper;
+}
+#closee{
+    color:rgb(19, 104, 54) ;
+    font-size: 1cm;
+    
+}

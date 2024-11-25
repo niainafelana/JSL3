@@ -1,0 +1,82 @@
+#box {
+    background-color: rgb(11, 87, 49);
+    width: 50%;
+    margin: 0px auto;
+    padding: 3%;
+    text-align: center;
+    border-radius: 25px;
+    margin-top:5%;
+    box-shadow: 10px 10px 10px rgb(11, 87, 49);
+ }
+ 
+ #nom{
+    color: whitesmoke;
+    font-size: larger;
+    font-family: Arial, Helvetica, sans-serif;
+ }
+ img{
+    width: 30%;
+    border-radius: 50%;
+    transition: 0.5s;
+ }
+ button{
+    width: 30%;
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+ }
+ #log{
+    background:whitesmoke;
+    transition: 1s;
+ }
+ #log:hover{
+    background: rgb(11, 87, 49);
+    width: 33%;
+    color: white;
+    transition: 1s;
+    box-shadow: 5px 5px 10px #d5e7ec;
+ }
+ #sign{
+    background: whitesmoke;
+    transition: 1s;
+ }
+ #sign:hover{
+    background: rgb(234, 138, 13);
+    width: 33%;
+    color: white;
+    transition: 1s;
+    box-shadow: 5px 5px 10px #fde3a7;
+ }
+ span{
+    white-space:inherit;
+ }
+ pre{
+font-family: cursive;
+ }
+ @media only screen and (max-width:768px) {
+    #box{
+        width: 80% ;
+        margin-top: 20%;
+    }
+    button{
+        width: 30%;
+        padding: 8px;
+     }
+}
+
+body{
+    opacity: 0;
+    background: whitesmoke;
+    transition: 4s;
+}
+#link>a>i,#mdp{
+   color:#fde3a7;
+   transition:1s; 
+}
+#link>a>i:hover{
+   text-shadow: 5px 5px 5px #fde3a7;
+   transition:0.5s;
+}
+pre>a>#link{
+   text-decoration: none;
+}

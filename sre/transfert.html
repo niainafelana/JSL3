@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+    <script src="bootstrap/js/bootstrap.min.js"></script>
+    <script src="js/jquery.min.js"></script>
+    <title>Transfert</title>
+    <style>
+        form{
+            width: 10cm;
+            margin: auto;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Transferer les fonds vers la tresorerie generale</h2><br>
+
+    <form id="transfert">
+        <div class="row">
+            <div class="col">
+                <select class="form-select form-select-lg mb-3" id="tp" name="tp" aria-label=".form-select-lg example">
+                    <option selected>Destinataire</option>
+                    <option value="TGFTS">Tresorerie Generale de FIANARANTSOA</option>
+                    <option value="TGAMB">Tresorerie Generale d'AMBOSITRA</option>
+                    <option value="TGTN">Tresorerie Generale d'ANTANANARIVO</option>
+                    <option value="BCF">BANQUE CENTRALE FIANARANTSOA</option>
+                    <option value="TGTL">Tresorerie Generale de TOLIARA</option>
+                </select>
+            </div>
+            </div>
+            <div class="col">
+                <input type="date" class="form-control" id="debut" name="debut" placeholder="date de debut">
+                <label for=" debut floatingInput">debut</label>
+            </div>
+            <div class="col">
+                <input type="date" class="form-control" id="farany" name="farany" placeholder="date de debut">
+                <label for=" debut floatingInput">debut</label>
+            </div>
+        </div>         
+        <div class="form-check form-switch">
+          <input class="form-check-input" type="checkbox" role="switch" id="inum" name="inum" value="oui">
+          <label class="form-check-label" for="inum">numeraire</label>
+        </div>
+        <div class="form-check form-switch">
+          <input class="form-check-input" type="checkbox" role="switch" id="inch" name="inch" value="oui">
+          <label class="form-check-label" for="inch">cheque</label>
+        </div>
+        <div class="form-check form-switch">
+          <input class="form-check-input" type="checkbox" role="switch"  id="invir" name="invir" value="oui">
+          <label class="form-check-label" for="ivir">virement</label>
+        </div>
+        <button type="submit" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+          Transferer
+        </button>
+
+    </form>
+    <br><br>
+    <!-- Button trigger modal -->
+
+  
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Confirmation du transfert</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <form  method="post" action="bord.php" class="row g-3">
+                <div class="col-12">
+                    <label for="inputAddress" class="form-label">Transfert vers: </label>
+                    <input type="text" class="form-control" id="typ" name="typ" placeholder="type" readonly>
+                  </div>
+                  <div class="col-12">
+                <div class="col-md-6">
+                  <label for="inputEmail4" class="form-label"> Du</label>
+                  <input type="text" class="form-control" id="voloany" name="deb" readonly>
+                </div>
+                <div class="col-md-6">
+                  <label for="inputPassword4" class="form-label">au</label>
+                  <input type="text" class="form-control" id="fin" name="fin" readonly>
+                </div>
+                  <label for="inputAddress2" class="form-label"> Vers</label>
+                  <select class="form-select" id="dest" name="dest" aria-label="Default select example">
+                    <option selected>Destination du fond</option>
+                    <option value="TG/TP">Trésorerie Generale/principale</option>
+                    <option value="CP">Comptable publique</option>
+                    <option value="BC">Banque centrale</option>
+                    <option value="BP">Banque Primaire</option>
+                    <option value="CPP">CPP</option>
+                    <option value="TG/TPR">virement de Trésorerie Generale/principale de rattachement</option>
+                  </select>
+                </div>
+                <div class="col-md-6">
+                    <label for="inputPassword4" class="form-label">Numeraire:</label>
+                    <input type="number" class="form-control" id="num" name="num" value="0" readonly>
+                  </div>
+                  <div class="col-md-6">
+                    <label for="inputPassword4" class="form-label">Chèque</label>
+                    <input type="number" class="form-control" id="ch" name="ch" value="0" readonly>
+                  </div>
+                  <div class="col-md-6">
+                    <label for="inputPassword4" class="form-label">virement:</label>
+                    <input type="number" class="form-control" id="vir" name="vir" value="0" readonly>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">annuler</button>
+                    <button type="submit" name="trans" class="btn btn-primary">confirmer et imprimer</button>
+                  </div>
+              </form>
+        </div>
+       
+      </div>
+    </div>
+  </div>
+    <script>
+           
+ /*function miova(id) {
+    if (id.checked) {
+        id.value="oui";
+    }else{
+        id.value="non";
+    }
+};*/
+         // Fonction pour envoyer les données du formulaire à l'API
+function sendDataToAPI(data,formul,url) {
+
+fetch(url, {
+    method: 'POST',
+    body: data,
+    headers: {
+        'Content-Type': 'application/json'
+    }
+})
+.then(response => response.json())
+.then(result => {
+       console.log(result);
+       document.getElementById('typ').value=formul['tp'];
+       document.getElementById('voloany').value= formul['debut'];
+       document.getElementById('fin').value= formul['farany'];
+       document.getElementById('num').value= result.numeraire.volanum;
+       document.getElementById('ch').value= result.cheque.volach;
+       document.getElementById('vir').value= result.virement.volavir;
+})
+.catch(error => {
+    console.error('Erreur:', error);
+});
+}
+
+// Fonction pour gérer la soumission du formulaire
+function maka(e) {
+e.preventDefault(); // Empêcher la soumission par défaut du formulaire
+
+const formData = new FormData(e.target);
+const formul ={};
+
+formData.forEach((value, key) => {
+    formul[key] = value;
+});
+const url = "extract.php";
+console.log(JSON.stringify(formul));
+sendDataToAPI(JSON.stringify(formul),formul,url);
+}
+document.getElementById('transfert').addEventListener('submit', maka);
+
+    </script>
+</body>
+</html>
